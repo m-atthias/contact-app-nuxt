@@ -1,0 +1,14 @@
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@font-face {
+    font-family: 'SharpSans';
+    font-weight: 400;
+    src: url('./assets/fonts/SharpSans-Semibold.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'SharpSans';
+    font-weight: 700;
+    src: url('./assets/fonts/SharpSans-Bold.woff2') format('woff2');
+}
