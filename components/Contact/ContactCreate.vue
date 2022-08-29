@@ -46,13 +46,13 @@
                                 :required="isAdvancedContact"
                                 @blur="validEmail(form.email)" 
                             />
-                            <span v-if="errors.emailError" class="text-red">{{errors.emailError}}</span>
+                            <span v-if="errors.emailError" class="input-error text-red">{{errors.emailError}}</span>
                         </div>
                         <div class="form-group flex flex-col my-2">
                             <label for="phone" class="font-normal text-sm my-1 text-blue-dark">{{ $t('contactPhoneLabel') }}</label>
                             <input
                                 id="phone" v-model="form.phone" class="border rounded-md border-grey-dark pl-3 pr-8 h-12" type="tel" placeholder="+31612345678" :required="isAdvancedContact"/>
-                            <span v-if="errors.phoneError" class="text-red">{{errors.phoneError}}</span>
+                            <span v-if="errors.phoneError" class="input-error text-red">{{errors.phoneError}}</span>
                         </div>
                     </div>
                     <button id="create-contact" class="p-2 bg-blue text-white rounded-full text-lg px-6 py-2 mb-2 mt-4" type="submit">{{ $t('formSubmit') }}</button>
