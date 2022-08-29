@@ -29,11 +29,11 @@ The app should work from mobile viewports up to modern desktop viewports.
 
 ### Tier 4
 - [x] Ik verwacht deze app online werkend te kunnen vinden
-- [] Ik verwacht Filters om de contacten te filteren
-- [] Ik verwacht een integratie met Docker
+- [ ] Ik verwacht Filters om de contacten te filteren
+- [ ] Ik verwacht een integratie met Docker
 - [x] Ik verwacht dat de data 'persistent' opgeslagen wordt in een externe database
 - [x] Ik verwacht het project in een git repository
-- [] Ik verwacht een TDD werkwijze met tests
+- [ ] Ik verwacht een TDD werkwijze met tests
 - [x] Ik verwacht een extraatje die ons omver 
 blaast.
     - Vertalingen van de applicatie
