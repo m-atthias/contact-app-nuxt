@@ -18,7 +18,9 @@ export default {
   css: ['~tailwind.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    { src: '~/plugins/vue-toast-notification.js', mode: 'client' }
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -76,6 +78,9 @@ export default {
           contactCreateHeading: 'Create new contact',
           invalidEmail: 'Please enter a valid email.',
           contactCreated: 'Contact created!',
+          contactList: 'My Contacts',
+          homeNav: 'Home',
+          myContactsNav: 'My Contacts',
         },
         nl: {
           intro: 'Gemakkelijk je werk en privé contacten beheren',
@@ -98,6 +103,9 @@ export default {
           contactCreateHeading: 'Maak nieuw contact aan',
           invalidEmail: 'Vul een geldig e-mailadres in.',
           contactCreated: 'Contact aangemaakt!',
+          contactList: 'Mijn Contacten',
+          homeNav: 'Home',
+          myContactsNav: 'Mijn Contacten',
         }
       }
     }

@@ -1,7 +1,7 @@
 <template>
     <header class="bg-blue-dark text-white z-10" :class="{ 'absolute w-full h-screen top-0 left-0': menu }">
         <div class="bg-white flex flex-wrap justify-between">
-            <div class="hidden w-auto p-6 sm:flex">
+            <div class="desktop-nav hidden w-auto p-6 sm:flex">
                 <nuxt-link 
                     id="home-nav"
                     :to="localePath('/')"
@@ -13,7 +13,7 @@
                     </h1>
                 </nuxt-link>
                 <nuxt-link
-                    class="text-blue-dark sm:self-center sm:ml-5 hover:underline"
+                    class="text-blue-dark sm:self-center sm:ml-5"
                     :to="localePath('/contacts')"
                 >
                     {{$t('myContacts')}}
@@ -42,7 +42,7 @@
         <nav v-show="menu" class="w-full transition-transform">
             <ul class="flex flex-col text-center">
                 <li v-for="(item, index) in items" :key="index" class="p-5">
-                    <nuxt-link :to="localePath(item.href)">{{item.title}}</nuxt-link>
+                    <nuxt-link :to="localePath(item.href)">{{$t(item.title)}}</nuxt-link>
                 </li>
             </ul>
         </nav>
@@ -56,10 +56,10 @@ export default {
         return {
             menu: false,
             items: [{
-                title: 'Home',
+                title: 'homeNav',
                 href: '/'
             }, {
-                title: 'My Contacts',
+                title: 'myContactsNav',
                 href: '/contacts'
             }]
         }
@@ -77,3 +77,12 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+    .nuxt-link-exact-active.nuxt-link-active {
+        border-bottom: 2px solid #fff;
+    }
+    .desktop-nav > .nuxt-link-exact-active.nuxt-link-active:not(:first-of-type) {
+        border-bottom: 2px solid hsl(226, 88%, 16%);
+    }
+</style>

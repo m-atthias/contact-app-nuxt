@@ -2,8 +2,7 @@
     <section class="py-8 md:py-16 bg-gray">
         <div class="max-w-3xl lg:max-w-4xl mx-auto my-0 w-full px-4 space-y-4">
             <div class="w-full bg-white px-5 sm:px-24 xl:py-10 pt-5 md:pt-10 pb-5 rounded shadow">
-                <h2 class="font-bold text-blue-dark text-2xl md:text-5xl">{{ $t('contactCreateHeading') }}</h2>
-                <span v-if="success" id="success-message" class="text-blue-dark">{{ $t('contactCreated') }}</span>
+                <h2 class="font-bold text-blue-dark text-2xl md:text-5xl">{{ $t('contactCreateHeading') }}</h2>                
                 <div class="radio-group form-group flex flex-col justify-between py-5">
                     <span class="mb-5">{{ $t('contactKind') }}</span>
                     <div class="flex flex-row justify-evenly">
@@ -71,7 +70,6 @@ export default {
     data() {
         return {
             isAdvancedContact: false,
-            success: false,
             form: {
                name: '',
                email: '',
@@ -89,8 +87,12 @@ export default {
         resetFields() {
             // Use reduce instead of forEach since this only goes through the Object properties and not the whole chain.
             this.form = Object.keys(this.form).reduce((acc, key) => {
-               acc[key] = '';
-               return acc;
+                if (key === 'type') {
+                    acc[key] = 'PRIVATE';
+                    return acc;   
+                }
+                acc[key] = '';
+                return acc;
             }, {});
         },
         handleChange(event) {
@@ -120,10 +122,7 @@ export default {
             await axios
                 .post('api/contact', formData)
                 .then(() => {
-                    this.success = true;
-                    setTimeout(() => {
-                        this.success = false;
-                    }, 5000);
+                    this.$toast.success(this.$t('contactCreated'));
                 })
                 .catch((_e) => {
                     window.location.reload();
